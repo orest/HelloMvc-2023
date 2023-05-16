@@ -1,0 +1,23 @@
+﻿@model Student
+<form>
+
+    <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input class="form-control" asp-for="FirstName"/>
+    </div>
+    
+@*    <div class="mb-3">
+        <label class="form-label">Country</label>
+        <input class="form-control"  asp-for="Country" />
+    </div>
+    *@
+    
+    <div class="mb-3">
+        <label class="form-label">Country</label>
+        <select class="form-select"  asp-for="Country" asp-items="Model.Countries">
+
+        </select>
+    </div>
+
+
+</form>

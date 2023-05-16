@@ -1,0 +1,33 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Home Page";
+
+    var message = "Orest Is a nice guy... <script>location=\"https://msn.com\"</script>";
+
+    var isOrestNice = false;
+
+
+}
+@Html.Raw(ViewBag.PageTitle)
+
+
+
+<h3>Say some true statement: @message </h3>
+
+@if (isOrestNice) {
+    <div>You know it!</div>
+} else {
+    <div>You don't know what you are talking about</div>
+}
+
+<div>
+    &lt;hello&gt;
+</div>
+
+<ul>
+    @foreach (var student in Model) {
+        <li>@student.FirstName</li>
+    }
+</ul>
+
+

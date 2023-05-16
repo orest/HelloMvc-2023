@@ -1,0 +1,43 @@
+﻿@model Employee
+
+<h1>Vacation Requests  </h1>
+<h2>@Model.FirstName @Model.LastName</h2>
+
+<div class="text-end my-2">
+    <a asp-action="Create" asp-route-employeeId="@Model.EmployeeId" class="btn btn-success">Add New  Request </a>
+</div>
+
+@if (Model.VacationRequests.Any()) {
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Comment</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var request in Model.VacationRequests) {
+                <tr>
+                    <td>@request.StartDate.ToString("d")</td>
+                    <td>@request.EndDate.ToString("d")</td>
+                    <td>@request.Comment</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@request.VacationRequestId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else {
+
+    <div class="alert alert-info" role="alert">
+        No vacation requests  found
+    </div>
+}
+
+
+
+

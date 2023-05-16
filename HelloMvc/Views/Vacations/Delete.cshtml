@@ -1,0 +1,25 @@
+﻿@model VacationRequest
+
+<h1 class="text-danger">Are you sure you want to delete this</h1>
+<div>
+    @Model.StartDate.ToString("D") -
+    @Model.EndDate.ToString("D")
+</div>
+<div>
+    @Model.Comment
+</div>
+
+
+<form method="post" >
+    <input type="hidden" asp-for="VacationRequestId" />
+    <input type="hidden" asp-for="EmployeeId" />
+    
+
+    <div class="text-end mt-4">
+        <a asp-action="Index" asp-route-employeeId="@Model.EmployeeId"
+           class="btn btn-outline-secondary">Cancel</a>
+
+        <button type="submit" class="btn btn-danger">Delete </button>
+
+    </div>
+</form>

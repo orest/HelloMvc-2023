@@ -1,0 +1,25 @@
+﻿@model VacationRequest
+
+
+<h1>Create new Vacation Request</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="EmployeeId" />
+    <div class="mb-3">
+        <label asp-for="StartDate" class="form-label">From</label>
+        <input asp-for="StartDate" class="form-control" type="date">
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="EndDate" class="form-label">EndDate</label>
+        <input asp-for="EndDate" class="form-control" type="date">
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="Comment" class="form-label">Comment </label>
+        <textarea asp-for="Comment" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary"> Submit</button>
+    </div>
+</form>
