@@ -1,31 +1,15 @@
-﻿@model Employee
-@{
-    var errorList = new List<string>();
-    if (ViewBag.ErrorList != null) {
-        errorList = (List<string>)ViewBag.ErrorList;
-    }
-}
+﻿@model HelloMvc.Models.VM.EmployeeVm
 
-@if (errorList.Any()) {
-    <div class="alert alert-danger">
-        <ul>
-            @foreach (var error in errorList) {
-                <li>@error</li>
-            }
-        </ul>
 
-    </div>
-}
+<div asp-validation-summary="ModelOnly"  >
+
+</div>
 
 <form method="post">
     <div class="mb-3">
         <label class="form-label">First Name</label>
         <input class="form-control" type="text" asp-for="FirstName" />
-        @if (Model!=null && string.IsNullOrEmpty(Model.FirstName)) {
-            <div class="text-danger">
-                Please provide a First Name.
-            </div>
-        }
+        <span asp-validation-for="FirstName" class="text-danger"></span>
 
     </div>
 
@@ -34,6 +18,7 @@
     <div class="mb-3">
         <label class="form-label">Last Name</label>
         <input class="form-control" type="text" asp-for="LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
