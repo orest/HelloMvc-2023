@@ -1,7 +1,7 @@
 ﻿@model HelloMvc.Models.VM.EmployeeVm
 
 
-<div asp-validation-summary="ModelOnly"  >
+<div asp-validation-summary="ModelOnly" class="alert alert-danger" >
 
 </div>
 
@@ -19,6 +19,17 @@
         <label class="form-label">Last Name</label>
         <input class="form-control" type="text" asp-for="LastName" />
         <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Home Phone</label>
+        <input class="form-control" type="text" asp-for="HomePhone" />
+        <span asp-validation-for="HomePhone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Mobile Phone</label>
+        <input class="form-control" type="text" asp-for="MobilePhone" />
+        <span asp-validation-for="MobilePhone" class="text-danger"></span>
     </div>
 
     <div class="mb-3">

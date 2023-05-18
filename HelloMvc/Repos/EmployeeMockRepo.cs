@@ -89,5 +89,10 @@ namespace HelloMvc.Repos {
         {
             throw new NotImplementedException();
         }
+
+        public Employee GetEmployeeOfMonth()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

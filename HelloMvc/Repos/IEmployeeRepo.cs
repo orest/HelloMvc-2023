@@ -10,5 +10,6 @@ namespace HelloMvc.Repos {
         public VacationRequest VacationsRequestRetrieveById(int vacationRequestId);
         public bool VacationsRequestDelete(int vacationRequestId, int employeeId);
         public VacationRequest VacationsRequestCreate(VacationRequest vacationRequest);
+        public Employee GetEmployeeOfMonth();
     }
 }

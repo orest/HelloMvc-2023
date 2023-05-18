@@ -1,0 +1,34 @@
+﻿@model Employee
+
+<div class="col-6">
+    <div class="card mb-2">
+        <div class="card-body">
+            <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+            @foreach (var vacation in Model.VacationRequests) {
+                <ul class="list-group">
+                    <li class="list-group-item mb-2">
+                        <div>
+                            @vacation.StartDate.ToString("d MMMM, yyyy") - @vacation.EndDate.ToString("d MMMM, yyyy")
+                            <span class="text-success">
+                                <strong> @((vacation.EndDate - vacation.StartDate).Days + 1) days</strong>
+                            </span>
+                        </div>
+
+                        <div>
+                            @vacation.Comment
+                        </div>
+                    </li>
+                </ul>
+            }
+
+            <div class="text-end mt-3">
+                <a asp-controller="Employees" asp-action="Edit" asp-route-id="@Model.EmployeeId" class="btn btn-primary">Edit User </a>
+                <a asp-controller="Vacations" asp-action="Index" asp-route-EmployeeId="@Model.EmployeeId" class="btn btn-warning">Edit Vacations</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

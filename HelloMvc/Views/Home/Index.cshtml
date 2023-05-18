@@ -1,4 +1,6 @@
-﻿@model List<Student>
+﻿@model HelloMvc.Models.VM.HomeVm
+
+
 @{
     ViewData["Title"] = "Home Page";
 
@@ -8,7 +10,25 @@
 
 
 }
-@Html.Raw(ViewBag.PageTitle)
+
+<h2>Employee of the Month</h2>
+<partial name="_EmployeeCard" for="Employee" />
+
+<h2>Students</h2>
+<ul>
+    @foreach (var student in Model.Students) {
+        <li>@student.FirstName</li>
+    }
+</ul>
+
+
+@section Scripts
+{
+
+    <h3>Orest is best </h3>
+}
+
+@*@Html.Raw(ViewBag.PageTitle)
 
 
 
@@ -30,4 +50,4 @@
     }
 </ul>
 
-
+*@

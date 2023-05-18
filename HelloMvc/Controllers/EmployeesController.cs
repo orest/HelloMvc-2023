@@ -13,18 +13,20 @@ namespace HelloMvc.Controllers {
         }
 
 
-        public IActionResult Index() {
+        public IActionResult Index()
+        {
+            
             var employeeData = _employeeRepo.GetAllEmployees();
             return View(employeeData);
         }
 
         public IActionResult Create() {
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(EmployeeVm model)
-        {
+        public IActionResult Create(EmployeeVm model) {
             //var errorList = new List<string>();
 
             //if (string.IsNullOrEmpty(model.FirstName)) {
@@ -49,20 +51,24 @@ namespace HelloMvc.Controllers {
             //5. Add Validation Logic
 
 
+            if (string.IsNullOrEmpty(model.HomePhone) && string.IsNullOrEmpty(model.MobilePhone)) {
 
-            ModelState.AddModelError("","Home phone or Mobile phone required ");
+                ModelState.AddModelError("", "Home phone or Mobile phone required ");
+            }
+
 
             if (ModelState.IsValid) {
                 var entity = new Employee() {
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    HomePhone = model.HomePhone,
+                    MobilePhone = model.MobilePhone
                 };
                 _employeeRepo.CreateEmployee(entity);
                 return RedirectToAction("Index");
             }
 
             return View(model);
-
         }
 
 

@@ -56,5 +56,11 @@ namespace HelloMvc.Repos {
             _context.SaveChanges();
             return vacationRequest;
         }
+
+        public Employee GetEmployeeOfMonth()
+        {
+            var employee = _context.Employees.FirstOrDefault();
+            return employee;
+        }
     }
 }

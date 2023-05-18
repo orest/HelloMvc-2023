@@ -11,5 +11,10 @@ namespace HelloMvc.Models.VM {
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Phone]
+        public string HomePhone { get; set; }
+        [Phone]
+        public string MobilePhone { get; set; }
+        
     }
 }
